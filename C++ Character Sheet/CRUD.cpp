@@ -34,9 +34,6 @@ void editLevel(int level);
 //Delete a character's file
 void deleteCharacter(const string& name);
 
-//Check if character already exists
-bool characterExists(const string& name);
-
 //Creating operator << between ostream and map (key:value||key:value...)
 std::ostream& operator <<(ostream& os, const map<string, string>& m) {
 	for (const auto& p : m) {

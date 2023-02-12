@@ -34,9 +34,9 @@ int main()
 
             cout << "Please enter the character's name" << endl;
             getline(cin, name);
-
+            string fileName = name + ".txt";
             //Check if character already exists (based on file name)
-            while (stat(name.c_str(), &buffer) == 0) {
+            while (stat(fileName.c_str(), &buffer) == 0) {
                 cout << "Character name already exists. Please try again." << endl;
                 getline(cin, name);
             }
@@ -86,6 +86,15 @@ int main()
             }
 
             createCharacter(name, stoi(level), spells, abilities);
+        }
+        else if (choice == "2") {
+
+        }
+        else if (choice == "3") {
+
+        }
+        else if (choice == "4") {
+
         }
     }
 }
