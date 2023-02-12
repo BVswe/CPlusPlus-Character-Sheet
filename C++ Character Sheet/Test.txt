@@ -1,0 +1,3 @@
+12
+Spell1:Spell1Effect|Spell2:Spell2Effect|Spell3:Spell3Effect|
+Ability1:Ability1Effect|Ability2:Ability2Effect|Ability3:Ability3Effect|

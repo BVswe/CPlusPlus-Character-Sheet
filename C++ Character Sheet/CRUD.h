@@ -1,28 +1,33 @@
 #pragma once
 #include <string>
-#include <fstream>
-#include <unordered_map>
-#include <stdio.h>
+#include <map>
+
 
 using namespace std;
 
 //Create a character file
-void createCharacter(string name, int level, unordered_map<string, string> spells, unordered_map<string, string> abilities);
+void createCharacter(const string& name, int level, const map<string, string>& spells, const map<string, string>& abilities);
 
 //Read/Access a character's date
-void accessCharacter(string name);
+void accessCharacter(const string& name);
 
 //Change name of character in file
-void editName(string name);
+void editName(const string& name);
 
 //Change spells of character in file
-void editSpells(unordered_map<string, string> spells);
+void editSpells(const map<string, string>& spells);
 
 //Change abilities of character in file
-void editAbilities(unordered_map<string, string> abilities);
+void editAbilities(const map<string, string>& abilities);
 
 //Change level of character in file
 void editLevel(int level);
 
 //Delete a character's file
-void deleteCharacter(string name);
+void deleteCharacter(const string& name);
+
+//Check if character already exists
+bool characterExists(const string& name);
+
+//Creating operator << between ostream and map
+std::ostream& operator <<(ostream& os, const map<string, string>& m);
