@@ -2,7 +2,6 @@
 //
 #include "CRUD.h"
 #include <iostream>
-#include <sstream>
 #include <tuple>
 
 using namespace std;
@@ -88,7 +87,18 @@ int main()
             createCharacter(name, stoi(level), spells, abilities);
         }
         else if (choice == "2") {
-
+            string name;
+            struct stat buffer;
+            cout << "Please enter the name of the character you wish to view." << endl;
+            getline(cin, name);
+            string fileName = name + ".txt";
+            //Check if character already exists (based on file name)
+            if (stat(fileName.c_str(), &buffer) == 0) {
+                accessCharacter(name);
+            }
+            else {
+                cout << "Character was not found." << endl;
+            }
         }
         else if (choice == "3") {
 

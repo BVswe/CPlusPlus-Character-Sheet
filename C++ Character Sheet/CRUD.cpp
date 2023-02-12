@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <sys/stat.h>
 #include <iostream>
+#include <sstream>
 
 using namespace std;
 
@@ -17,7 +18,46 @@ void createCharacter(const string& name, int level, const map<string, string>& s
 }
 
 //Read/Access a character's date
-void accessCharacter(const string& name);
+void accessCharacter(const string& name) {
+	string line;
+	ifstream character(name + ".txt");
+
+	cout << "Name: " << name << endl;
+	getline(character, line);
+	cout << "Level: " << line << endl;
+	getline(character, line);
+	cout << endl;
+	cout << "Spell: Description" << endl;
+	stringstream ss(line);
+	while (ss) {
+		string temp;
+		char skip;
+		getline(ss, temp, ':');
+		if (temp == "") {
+			break;
+		}
+		cout << temp << ": ";
+		getline(ss, temp, '|');
+		cout << temp << endl;
+	}
+	cout << endl;
+	getline(character, line);
+	cout << "Ability: Description" << endl;
+	ss.clear();
+	ss.str(line);
+	while (ss) {
+		string temp;
+		char skip;
+		getline(ss, temp, ':');
+		if (temp == "") {
+			break;
+		}
+		cout << temp << ": ";
+		getline(ss, temp, '|');
+		cout << temp << endl;
+	}
+	cout << endl;
+}
 
 //Change name of character in file
 void editName(const string& name);
