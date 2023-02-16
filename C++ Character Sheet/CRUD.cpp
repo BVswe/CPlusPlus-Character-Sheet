@@ -4,6 +4,7 @@
 #include <sys/stat.h>
 #include <iostream>
 #include <sstream>
+#include <filesystem>
 
 using namespace std;
 
@@ -72,7 +73,16 @@ void editAbilities(const map<string, string>& abilities);
 void editLevel(int level);
 
 //Delete a character's file
-void deleteCharacter(const string& name);
+void deleteCharacter(const string& name) {
+	string tempName = name + ".txt";
+	if (std::filesystem::remove(tempName)) {
+		cout << name << " deleted." << endl;
+	}
+	else {
+		cout << name << " not found." << endl;
+	}
+
+}
 
 //Creating operator << between ostream and map (key:value||key:value...)
 std::ostream& operator <<(ostream& os, const map<string, string>& m) {

@@ -22,7 +22,7 @@ void editAbilities(const map<string, string>& abilities);
 
 //Change level of character in file
 void editLevel(int level);
-
+ 
 //Delete a character's file
 void deleteCharacter(const string& name);
 
